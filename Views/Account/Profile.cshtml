@@ -1,0 +1,83 @@
+﻿@model CarRentalSystem.Models.Identity.ApplicationUser
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0" style="border-radius: 16px; background: #f9fafb;">
+        <div class="card-header bg-primary text-white py-3" style="border-top-left-radius: 16px; border-top-right-radius: 16px;">
+            <h3 class="mb-0 d-flex align-items-center">
+                <i class="fas fa-user-cog me-2"></i> User Profile
+            </h3>
+        </div>
+        <div class="card-body">
+            <form method="post" class="needs-validation" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="FirstName" class="form-label fw-bold">First Name</label>
+                        <input asp-for="FirstName" class="form-control" style="border-radius: 8px;" required />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="LastName" class="form-label fw-bold">Last Name</label>
+                        <input asp-for="LastName" class="form-control" style="border-radius: 8px;" required />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Email" class="form-label fw-bold">Email</label>
+                        <input asp-for="Email" class="form-control" style="border-radius: 8px;" disabled />
+                        <small class="form-text text-muted">You cannot change your email here.</small>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="PhoneNumber" class="form-label fw-bold">Phone Number</label>
+                        <input asp-for="PhoneNumber" class="form-control" style="border-radius: 8px;" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-4" style="background: #003366; border-color: #003366; border-radius: 8px;">
+                    <i class="fas fa-save me-2"></i> Update Profile
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ebeff9, #f5f7fa);
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-primary:hover {
+        background: #0056b3 !important;
+        border-color: #0056b3 !important;
+    }
+
+    .form-control:focus {
+        border-color: #003366;
+        box-shadow: 0px 0px 8px rgba(0, 51, 102, 0.2);
+    }
+
+    .form-text {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .card-header {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .fas {
+        color: white;
+    }
+</style>

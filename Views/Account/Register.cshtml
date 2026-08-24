@@ -1,0 +1,111 @@
+﻿@model CarRentalSystem.ViewModels.RegisterViewModel
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="glass-card">
+        <div class="gradient-border">
+            <div class="content-wrapper">
+                <h3 class="main-title text-center">
+                    <span class="gradient-text"><i class="fas fa-user-plus me-2"></i>Register</span>
+                </h3>
+                <form asp-controller="Account" asp-action="Register" method="post" class="needs-validation" novalidate>
+    <div asp-validation-summary="All" class="alert alert-danger mb-4"></div>
+                    <div class="mb-4">
+                        <label for="FirstName" class="form-label fw-bold">First Name</label>
+                        <input type="text" class="form-control" asp-for="FirstName" required style="border-radius: 12px;" />
+                        <div class="invalid-feedback">Please enter your first name.</div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="LastName" class="form-label fw-bold">Last Name</label>
+                        <input type="text" class="form-control" asp-for="LastName" required style="border-radius: 12px;" />
+                        <div class="invalid-feedback">Please enter your last name.</div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="Email" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control" asp-for="Email" required style="border-radius: 12px;" />
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="Password" class="form-label fw-bold">Password</label>
+                        <input type="password" class="form-control" asp-for="Password" required style="border-radius: 12px;" />
+                        <div class="invalid-feedback">Please enter a password.</div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="ConfirmPassword" class="form-label fw-bold">Confirm Password</label>
+                        <input type="password" class="form-control" asp-for="ConfirmPassword" required style="border-radius: 12px;" />
+                        <div class="invalid-feedback">Passwords do not match.</div>
+                    </div>
+                    <button type="submit" class="gradient-btn w-100">
+                        <i class="fas fa-arrow-right me-2"></i> Register
+                    </button>
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="/Account/Login" class="text-decoration-none" style="color: #00b4d8;">Login here</a>.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ebeff9, #f5f7fa);
+        margin: 0;
+        padding: 0;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .gradient-border {
+        padding: 3px;
+        background: linear-gradient(45deg, #00b4d8, #00ff88);
+        border-radius: 25px;
+    }
+
+    .content-wrapper {
+        padding: 2rem;
+        background: white;
+        border-radius: 23px;
+    }
+
+    .main-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .gradient-text {
+        background: linear-gradient(45deg, #00b4d8, #00ff88);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-btn {
+        background: linear-gradient(45deg, #00b4d8, #00ff88);
+        color: white !important;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        font-weight: 500;
+    }
+
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+        }
+
+    .form-control:focus {
+        border-color: #00b4d8;
+        box-shadow: 0px 0px 8px rgba(0, 180, 216, 0.2);
+    }
+</style>

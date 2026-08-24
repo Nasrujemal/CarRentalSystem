@@ -1,0 +1,57 @@
+﻿@model CarRentalSystem.Models.Entities.Vehicle
+
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0"><i class="fas fa-car"></i> Add New Vehicle</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Make"></label>
+                            <input asp-for="Make" class="form-control" />
+                            <span asp-validation-for="Make" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Model"></label>
+                            <input asp-for="Model" class="form-control" />
+                            <span asp-validation-for="Model" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Year"></label>
+                            <input asp-for="Year" class="form-control" />
+                            <span asp-validation-for="Year" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="PricePerDay"></label>
+                            <input asp-for="PricePerDay" class="form-control" />
+                            <span asp-validation-for="PricePerDay" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Vehicle Image</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">
+                    <i class="fas fa-save"></i> Create Vehicle
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

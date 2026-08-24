@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Car Rental System</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ebeff9 100%);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        .navbar {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar-brand svg {
+                width: 150px; /* Adjust size as needed */
+                height: auto;
+            }
+
+        .nav-link {
+            color: white !important;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+            .nav-link:hover {
+                color: #ffd700 !important;
+                transform: translateY(-2px);
+            }
+
+        /* Footer */
+        footer {
+            background: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+            footer a {
+                color: #ffd700;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                footer a:hover {
+                    color: white;
+                }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light">
+            <div class="container-fluid">
+                <!-- Replace Text with SVG Logo -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" style="background: #003366; border-radius: 10px; padding: 10px;">
+                        <g>
+                            <!-- Car Icon -->
+                            <circle cx="30" cy="40" r="20" fill="#FFD700" />
+                            <rect x="20" y="30" width="40" height="20" fill="#FFD700" rx="5" />
+                            <path d="M40,50 L60,50 L60,60 L40,60 Z" fill="#FFD700" />
+                            <!-- Text -->
+                            <text x="80" y="45" font-family="Poppins, sans-serif" font-size="24" fill="white" font-weight="bold">
+                                Car Rental System
+                            </text>
+                        </g>
+                    </svg>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Vehicles" asp-action="Index">Vehicles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Bookings" asp-action="Create">Book Now</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            &copy; 2025 - Car Rental System - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

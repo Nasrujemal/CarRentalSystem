@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CarRentalSystem.Models.Entities.Vehicle>
+
+@{
+    ViewData["Title"] = "Available Vehicles";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Available Vehicles</h2>
+    <div class="row">
+        @foreach (var vehicle in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card vehicle-card">
+                    <img src="@vehicle.ImagePath" class="card-img-top" alt="@vehicle.Make" style="height:200px; object-fit:cover;" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@vehicle.Make @vehicle.Model</h5>
+                        <p class="card-text">
+                            <strong>Year:</strong> @vehicle.Year <br />
+                            <strong>Price per Day:</strong> $@vehicle.PricePerDay <br />
+                            <strong>Availability:</strong> @(vehicle.IsAvailable ? "Available" : "Not Available")
+                        </p>
+                        <a asp-controller="Bookings" asp-action="Create" asp-route-vehicleId="@vehicle.Id" class="btn btn-success">
+                            Book Now
+                        </a>
+                        <a asp-controller="Vehicles" asp-action="Edit" asp-route-id="@vehicle.Id" class="btn btn-primary ml-2">
+                            Edit
+                        </a>
+                        <a asp-controller="Vehicles" asp-action="Delete" asp-route-id="@vehicle.Id" class="btn btn-danger ml-2">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .vehicle-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+    .ml-2 {
+        margin-left: 0.5rem;
+    }
+</style>
+
